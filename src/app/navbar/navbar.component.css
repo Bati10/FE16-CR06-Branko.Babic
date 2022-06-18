@@ -1,0 +1,13 @@
+.navstil {
+    background-color: #212529;
+    align-items: center;
+}
+
+.astil {
+    color: #D6CBB2;
+    font-weight: bold;
+}
+
+.astil:hover {
+    border: #D6CBB2 1px solid;
+}

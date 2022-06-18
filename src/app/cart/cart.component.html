@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row d-flex my-5">
+        <div class="cart col-lg-7 col-xs-12">
+            <div class="h4 p-2 cartb">Cart</div>
+            <div class="cart-item d-flex justify-content-top mb-3" *ngFor="let item of items">
+                <div class="col-md-4">
+                    <img src="{{item.img}}" class="img-fluid rounded-start" style="height:150px; object-fit:cover">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-text d-flex justify-content-between">
+                        <h5 class="card-title ms-3 fw-bold">{{item.name}}</h5>
+                        <p class="card-text fw-bold">{{item.price | currency:"EUR" }}</p>
+                    </div>
+                    <p class="ps-3">{{item.description}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="amount col-lg-5 col-xs-12">
+            <div class="cart-headline h4 p-2 cartb">Summary</div>
+            <div class="d-flex justify-content-between ps-3 pe-2">
+                <p>Products:</p>
+                <p>{{product | currency:"EUR" }}</p>
+            </div>
+            <div class="d-flex justify-content-between ps-3 pe-2">
+                <p>Service:</p>
+                <p>{{service | currency:"EUR" }}</p>
+            </div>
+            <div class="d-flex justify-content-between ps-3 pe-2">
+                <p>Discount above 40€:</p>
+                <p>{{discount | currency:"EUR" }}</p>
+            </div>
+            <div class="d-flex justify-content-between ps-3 pe-2 border-top">
+                <p class="fw-bold fs-5">Total Amount:</p>
+                <p>{{total | currency:"EUR" }}</p>
+            </div>
+            <div class="d-flex justify-content-between ps-3 pe-2 border-top">
+                <p class="fw-bold fs-5">Discount Amount:</p>
+                <p>{{damount | currency:"EUR" }}</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<h1 class="h1 text-center mt-5 mb-3">Order Form</h1>
+<div class="container">
+    <form class="d-flex flex-column justify-content-center align-items-center" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <input class="m-2 p-2" type="text" placeholder="Your First Name" formControlName="name">
+        <input class="m-2 p-2" type="text" placeholder="Your Last Name" formControlName="lname">
+        <input class="m-2 p-2" type="text" placeholder="Your Address" formControlName="address">
+        <input class="m-2 p-2" type="email" placeholder="Your E-Mail" formControlName="email">
+        <button class="btn btn-primary text-center mt-3 mb-5" type="submit">Purchase</button>
+    </form>
+</div>
